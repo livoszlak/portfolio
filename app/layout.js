@@ -1,9 +1,9 @@
-import { Inter, Pacifico } from "next/font/google";
+import { Inter, Fira_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
-const pacifico = Pacifico({ weight: ["400"], subsets: ["latin"] });
 
 export const metadata = {
   title: "BLEP, Inc.",
@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
