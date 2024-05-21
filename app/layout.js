@@ -1,9 +1,9 @@
-import { Inter, Fira_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const mono = JetBrains_Mono({ weight: ["400", "700"], subsets: ["latin"] });
 
 export const metadata = {
   title: "BLEP, Inc.",
@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Navbar />
         {children}
         <Footer />

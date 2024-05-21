@@ -1,17 +1,21 @@
 import Link from "next/link";
-import { Fira_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 
-const fira = Fira_Mono({ weight: ["400", "700"], subsets: ["latin"] });
+const mono = JetBrains_Mono({ weight: ["400", "700"], subsets: ["latin"] });
 
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <Link href="/about" className={fira.className}>
-        About
+      <Link href="/" className={mono.className}>
+        Home
       </Link>
 
-      <Link href="/" className={fira.className}>
-        Home
+      <Link href="/projects" className={mono.className}>
+        Projects
+      </Link>
+
+      <Link href="/about" className={mono.className}>
+        About
       </Link>
     </nav>
   );

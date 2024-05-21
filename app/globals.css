@@ -6,39 +6,29 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   width: 100%;
-  height: 100px;
-  padding: 1rem;
+  padding: 2rem;
   font-size: 1rem;
 }
 
 body {
   width: 100%;
   height: 100%;
-  overscroll-behavior-x: hidden;
   margin: 0 auto;
 }
 
 main {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.img-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-img {
-  object-fit: contain;
+  padding: 2rem;
 }
 
 footer {
-  height: 400px;
+  height: 200px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,4 +37,14 @@ footer {
 
 a {
   text-decoration: none;
+}
+
+.mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.project-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
 }
