@@ -1,24 +1,17 @@
-import { JetBrains_Mono } from "next/font/google";
-import projectsData from "@/app/api/projects.json";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
 import Link from "next/link";
+import { fetchProjects } from "../api/projects";
+import ProjectCard from "../components/ProjectCard/ProjectCard";
 
-const mono = JetBrains_Mono({ weight: ["400", "700"], subsets: ["latin"] });
-
-export default function Projects() {
-  const projects = projectsData;
+export default async function Projects({ projects }) {
+  const data = await fetchProjects();
 
   return (
     <main>
       <title>Projects</title>
-      <h1 className={mono.className}>Projects</h1>
-      {projects.map((project) => (
-        <Link href={"/projects/" + project.slug}>
-          <ProjectCard
-            className={mono.className}
-            key={project.id}
-            project={project}
-          />
+      <h1 className="mono">Projects</h1>
+      {data.map((project, index) => (
+        <Link href={"/projects/" + project.slug} key={index}>
+          <ProjectCard className="mono" project={project} key={index} />
         </Link>
       ))}
     </main>

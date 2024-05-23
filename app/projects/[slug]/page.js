@@ -1,34 +1,19 @@
 import { JetBrains_Mono } from "next/font/google";
-import projects from "@/app/api/projects.json";
 import ProjectCard from "@/app/components/ProjectCard/ProjectCard";
+import { fetchProject } from "@/app/api/projects";
 
 const mono = JetBrains_Mono({ weight: ["400", "700"], subsets: ["latin"] });
 
 export default async function Project({ params }) {
   const projectTitle = params.slug.toLowerCase();
 
-  const matchingProject = projects.find(
-    (project) => project.slug.toLowerCase() === projectTitle
-  );
+  const matchingProject = await fetchProject(projectTitle);
 
   console.log(matchingProject);
 
   if (!matchingProject) {
     return <div>Loading...</div>;
   }
-
-  const getProducts = async () => {
-    const res = await fetch("https://dummyjson.com/recipes");
-    return res.json();
-  };
-
-  const data = await getProducts();
-
-  if (!data) {
-    console.log("no");
-  }
-
-  console.log(data);
 
   return (
     <main>
